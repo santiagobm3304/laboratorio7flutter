@@ -11,14 +11,19 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Material App',
-      home: const ListView2Screen(),
+      //home: const ListView2Screen(),
+      initialRoute: 'home',
       routes:{
         'home':(BuildContext context) => const HomeScreen(),
         'listview1':(BuildContext context) => const ListView1Screen(),
         'listview2':(BuildContext context) => const ListView2Screen(),
         'card':(BuildContext context) => const CardScreen(),
         'alert':(BuildContext context) =>  const AlertScreen()
-      }
+      },
+      onGenerateRoute: (settings) {
+        print(settings);
+        return MaterialPageRoute(builder:(context) => const AlertScreen());
+      },
     );
   }
 }
